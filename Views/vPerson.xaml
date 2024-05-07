@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRUDTS5DANAMISE.Views.vPerson"
+             Title="vPerson">
+
+
+
+    <FlexLayout Direction="Column">
+        <VerticalStackLayout Padding="5" FlexLayout.Basis="200" BackgroundColor="Beige">
+            <Label Text="BASE DE DATOS: PERSONA" FontSize="20" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="txtPersona" Placeholder="Ingrese un nombre"/>
+            <Button x:Name="btnAgregar" Text="Agregar persona" Grid.Row="0" Grid.Column="0"
+                   Clicked="btnAgregar_Clicked"/>
+            <Label x:Name="lblStatus"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+            <Button x:Name="btnObtener"
+                    Text="Listar personas"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Clicked="btnObtener_Clicked"/>
+        </VerticalStackLayout>
+
+
+        <ListView x:Name="litsView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="litsView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell> 
+                        <VerticalStackLayout Padding="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding Id}" Grid.Column="0" HorizontalTextAlignment="Center" Margin="10,20,0,0"/>
+                                <Label Text="{Binding Name}" Grid.Column="1" HorizontalTextAlignment="Center" Margin="50,20,50,0"/>
+
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
+</ContentPage>
